@@ -131,8 +131,6 @@ module.exports = function(grunt) {
         }
       }
 
-      console.log(tree);
-
       var sortedSrc = analyse(tree).map(function(filepath) {
         // Read file source.
         return grunt.file.read(filepath).replace(options.requireTemplate, '');
