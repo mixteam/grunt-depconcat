@@ -69,7 +69,7 @@ In this example, if `1.js` require `2.js` , and `2.js` require `3.js`, the Conca
 require js file like this:
 
 	//require 1
-	//requite 2
+	//require 2
 
 concat them:
 
