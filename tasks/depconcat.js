@@ -114,17 +114,24 @@ module.exports = function(grunt) {
         });
 
       } else if (f.tree) {
-        var tree = grunt.file.readJSON(f.tree),
-            names = Object.keys(tree),
-            treeDir = path.dirname(f.tree);
 
-        names.forEach(function(filepath) {
-          tree[path.normalize(path.join(treeDir, filepath))] = tree[filepath].map(function(depfile) {
-            return path.normalize(path.join(treeDir, depfile));
+        if (typeof f.tree === 'string') {
+          var tree = grunt.file.readJSON(f.tree).
+              names = Object.keys(tree),
+              treeDir = path.dirname(f.tree);
+
+          names.forEach(function(filepath) {
+            tree[path.normalize(path.join(treeDir, filepath))] = tree[filepath].map(function(depfile) {
+              return path.normalize(path.join(treeDir, depfile));
+            });
+            delete tree[filepath];
           });
-          delete tree[filepath];
-        });
+        } else {
+          var tree = f.tree;
+        }
       }
+
+      console.log(tree);
 
       var sortedSrc = analyse(tree).map(function(filepath) {
         // Read file source.
