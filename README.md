@@ -66,6 +66,13 @@ The excepted files.
 In this example, if `1.js` require `2.js` , and `2.js` require `3.js`, the Concatenated files will be joined as `3.js` + `2.js` + `1.js`.
 
 
+require js file like this:
+
+	//require 1
+	//requite 2
+
+concat them:
+
 	grunt.initConfig({
 	  depconcat: {
 	    options: {},
@@ -78,7 +85,12 @@ In this example, if `1.js` require `2.js` , and `2.js` require `3.js`, the Conca
 #### basic usage for css
 In this example, if `1.css` import `2.css` , and `2.css` import `3.css`, the Concatenated files will be joined as `3.css` + `2.css` + `1.css`.
 
+require css file like this as usual:
 
+	@import url(1.css)
+	@import url(2.css)
+
+concat them:
 	grunt.initConfig({
 	  depconcat: {
 	    options: {},
