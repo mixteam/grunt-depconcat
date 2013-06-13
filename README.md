@@ -69,8 +69,8 @@ In this example, when `1.js` require `2.js`, and `2.js` require `3.js`, the Conc
 
 require js file like this:
 
-	//require 1
-	//require 2
+	//@require 1
+	//@require 2
 
 concatenat them:
 
@@ -127,8 +127,8 @@ In this example, we have some tepmlate files named `1.tpl`, `2.tpl`, `3.tpl`.
 
 require template file lik this:
 
-	//extend 1
-	//extend 2
+	//@extend 1
+	//@extend 2
 
 concatenat them:
 
@@ -137,7 +137,7 @@ grunt.initConfig({
   depconcat: {
     options: {
 		ext: '.tpl',
-		requiteTemplate: '\\/\\/extend ([\\w.]+)'
+		requiteTemplate: '\\/\\/@extend ([\\w.]+)'
 	},
     files: {
       'dest/all.tpl': ['<%= templates/*.tpl %>'],
